@@ -1,21 +1,42 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import List from './List';
 
 const TodoList = () => {
     const [lists,setLists]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/task',{
+        fetch('https://polar-eyrie-18525.herokuapp.com/task',{
             method:"GET"
         })
         .then(res=>res.json())
         .then(data=>setLists(data))
     },[])
     return (
-        <div className='w-50 mx-auto shadow bg-light mt-5'>
+        
+      <div className="mx-auto w-75 mt-5 shadow bg-light">
+      <table className="table w-full">
+          <thead>
+              <tr>
+                  <th></th>
+                
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+   
             {
-                lists?.map(list=><List key={list?._id} list={list}></List>)
+                lists?.map((list,index)=><List key={list?._id} list={list} index={index}></List>)
             }
-        </div>
+            </tbody>
+                </table>
+            </div>
+          
+    
+
+
+        
     );
 };
 
