@@ -5,10 +5,12 @@ import { Route, Routes } from 'react-router-dom';
 import RequireAuth from './Components/RequireAuth';
 import SignIn from './Components/SignIn';
 import SignUp from './Components/SignUp';
+import Header from './Components/Header';
 
 function App() {
   return (
     <div>
+      <Header></Header>
       <Routes>
         <Route path='/' element={
           <RequireAuth>

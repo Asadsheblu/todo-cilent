@@ -58,7 +58,7 @@ if(loading){
     const handelLogin=async(e)=>{
         e.preventDefault()
       
-      
+        signInWithEmailAndPassword(email,password)
     }
     const handelResetPassword=async()=>{
  
